@@ -6,6 +6,6 @@ useState, useContext, portals
 
 Todo app
 It's a task manager
-You can create, marked as completed and delete a task
+You can create, mark as completed and delete a task
 Persistence with local-storage
 useState, useContext, portals
