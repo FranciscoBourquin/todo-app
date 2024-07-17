@@ -1,6 +1,6 @@
 import './TodoCounter.css';
 
-export const TodoCounter= ({completedTodos, totalTodos}) => {
+export const TodoCounter= ({completedTodos, totalTodos, loading}) => {
 
   let message;
 
@@ -12,7 +12,7 @@ export const TodoCounter= ({completedTodos, totalTodos}) => {
     message = `Has completado ${completedTodos} de ${totalTodos} tareas`;
   }
   return (
-    <h1 className="TodoCounter">
+    <h1 className={`TodoCounter ${!!loading&& "TodoCounter--loading"}`}>
       {message}
     </h1>
   );

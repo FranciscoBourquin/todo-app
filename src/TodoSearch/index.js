@@ -1,6 +1,6 @@
 import './TodoSearch.css';
 
-export const TodoSearch = ({ searchValue, setSearchValue }) => {
+export const TodoSearch = ({ searchValue, setSearchValue, loading }) => {
 
   return (
     <input
@@ -10,6 +10,7 @@ export const TodoSearch = ({ searchValue, setSearchValue }) => {
       onChange={(event) => {
         setSearchValue(event.target.value);
       }}
+      disabled = {loading}
     />
   );
 }
