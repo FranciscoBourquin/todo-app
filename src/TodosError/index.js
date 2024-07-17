@@ -1,6 +1,6 @@
 import "./TodosError.css"
 
-function TodosError() {
+export const TodosError = () =>  {
 
   return (
 
@@ -13,5 +13,3 @@ function TodosError() {
 </div>
   );
 }
-
-export { TodosError };

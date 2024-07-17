@@ -2,7 +2,7 @@ import { CompleteIcon } from '../TodoIcon/CompleteIcon'
 import { DeleteIcon } from '../TodoIcon/DeleteIcon'
 import './TodoItem.css';
 
-function TodoItem(props) {
+export const TodoItem = (props) => {
   return (
     <li className="TodoItem">
       <CompleteIcon
@@ -20,5 +20,3 @@ function TodoItem(props) {
     </li>
   );
 }
-
-export { TodoItem };

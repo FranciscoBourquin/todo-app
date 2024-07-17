@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
 
-export function useTodos() {
+export const useTodos = () => {
   const {
     item: todos,
     saveItem: saveTodos,

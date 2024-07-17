@@ -1,7 +1,7 @@
 import React from 'react';
 import { TodoIcon } from './';
 
-function DeleteIcon({ onDelete }) {
+export const DeleteIcon = ({ onDelete }) => {
   return (
     <TodoIcon
       type="delete"
@@ -10,5 +10,3 @@ function DeleteIcon({ onDelete }) {
     />
   );
 }
-
-export { DeleteIcon };

@@ -1,17 +1,17 @@
 import React from 'react';
 
-function useLocalStorage(itemName, initialValue) {
+export const useLocalStorage = (itemName, initialValue) => {
   const [item, setItem] = React.useState(initialValue);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
-  
+
   React.useEffect(() => {
     setTimeout(() => {
       try {
         const localStorageItem = localStorage.getItem(itemName);
-    
+
         let parsedItem;
-  
+
         if (!localStorageItem) {
           localStorage.setItem(itemName, JSON.stringify(initialValue));
           parsedItem = initialValue;
@@ -19,7 +19,7 @@ function useLocalStorage(itemName, initialValue) {
           parsedItem = JSON.parse(localStorageItem);
           setItem(parsedItem);
         }
-  
+
         setLoading(false);
       } catch(error) {
         setLoading(false);
@@ -40,8 +40,6 @@ function useLocalStorage(itemName, initialValue) {
     error,
   };
 }
-
-export { useLocalStorage };
 
 
 // localStorage.removeItem('TODOS_V1');

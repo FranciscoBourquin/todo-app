@@ -1,6 +1,6 @@
 import './TodoCounter.css';
 
-function TodoCounter({completedTodos, totalTodos}) {
+export const TodoCounter= ({completedTodos, totalTodos}) => {
 
   let message;
 
@@ -17,5 +17,3 @@ function TodoCounter({completedTodos, totalTodos}) {
     </h1>
   );
 }
-
-export { TodoCounter };

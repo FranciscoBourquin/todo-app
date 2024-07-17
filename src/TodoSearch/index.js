@@ -1,6 +1,6 @@
 import './TodoSearch.css';
 
-function TodoSearch({ searchValue, setSearchValue }) {
+export const TodoSearch = ({ searchValue, setSearchValue }) => {
 
   return (
     <input
@@ -14,4 +14,4 @@ function TodoSearch({ searchValue, setSearchValue }) {
   );
 }
 
-export { TodoSearch };
+

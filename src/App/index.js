@@ -1,3 +1,4 @@
+import "./App.css"
 import { useTodos } from './useTodos';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
@@ -9,7 +10,8 @@ import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
 import { TodoForm } from '../TodoForm';
-function App() {
+
+const App= () => {
 
   const
   {
@@ -38,8 +40,25 @@ function App() {
       searchValue = {searchValue}
       setSearchValue = {setSearchValue}
     />
+        <TodoList
+          error = {error}
+          onError = {()=> { <TodosError />}}
+          loading = {loading}
+          onLoading = {()=> {<TodoLoader />}}
+          searchedTodos = {searchedTodos}
+          onEmptyTodos = {()=> {<EmptyTodos/>}}
+          render = {todo => (
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+            />
+          )}
 
-        <TodoList>
+        />
+        {/* <TodoList>
           {loading && (
             <>
               <TodoLoader />
@@ -57,7 +76,7 @@ function App() {
               onDelete={() => deleteTodo(todo.text)}
             />
           ))}
-        </TodoList>
+        </TodoList> */}
 
 
     <CreateTodoButton
