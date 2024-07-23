@@ -1,11 +1,12 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 export const useLocalStorage = (itemName, initialValue) => {
-  const [item, setItem] = React.useState(initialValue);
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(false);
+  const [syncItem, setSyncItem] = useState(true)
+  const [item, setItem] = useState(initialValue);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       try {
         const localStorageItem = localStorage.getItem(itemName);
@@ -21,35 +22,34 @@ export const useLocalStorage = (itemName, initialValue) => {
         }
 
         setLoading(false);
+        setSyncItem(true);
+
       } catch(error) {
+
         setLoading(false);
         setError(true);
       }
     }, 2000);
-  });
+  },[syncItem]);
 
   const saveItem = (newItem) => {
     localStorage.setItem(itemName, JSON.stringify(newItem));
     setItem(newItem);
   };
 
+  const synchronizeItem = ()=> {
+
+    setLoading(true);
+    setSyncItem(false);
+
+  }
+
   return {
     item,
     saveItem,
     loading,
     error,
+    synchronizeItem
   };
 }
 
-
-// localStorage.removeItem('TODOS_V1');
-
-// const defaultTodos = [
-//   { text: 'Cortar cebolla', completed: true },
-//   { text: 'Tomar el Curso de Intro a React.js', completed: false },
-//   { text: 'Llorar con la Llorona', completed: false },
-//   { text: 'LALALALALA', completed: false },
-//   { text: 'Usar estados derivados', completed: true },
-// ];
-
-// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));

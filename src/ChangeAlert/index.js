@@ -1,0 +1,26 @@
+import { useStorageListener } from './useStorageListener';
+import "./ChangeAlert.css"
+
+export const ChangeAlert = ({synchronize}) => {
+    const {show, toggleShow} = useStorageListener(synchronize);
+
+    if (show) {
+        return (
+            <div className='ChangeAlert-bg'>
+                <div className='ChangeAlert-container'>
+                    <p>Parece que cambiaste tus tareas en otra pestaña o ventana del navegador</p>
+                    <p>Quieres sincronizar tus tareas?</p>
+                    <button className='TodoForm-button TodoForm-button--add'
+                    onClick= {toggleShow}
+                    >
+                        Sí!
+                    </button>
+                </div>
+            </div>
+        )
+    }
+    else {
+        return null
+    }
+
+}

@@ -1,5 +1,6 @@
 import "./App.css"
 import { useTodos } from './useTodos';
+import { TodoHeader } from "../TodoHeader";
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
@@ -10,7 +11,7 @@ import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
 import { TodoForm } from '../TodoForm';
-import { TodoHeader } from "../TodoHeader";
+import { ChangeAlert } from "../ChangeAlert";
 
 const App= () => {
 
@@ -27,7 +28,8 @@ const App= () => {
     deleteTodo,
     openModal,
     setOpenModal,
-    addTodo
+    addTodo,
+    synchronizeTodos
 
  } = useTodos()
 
@@ -79,6 +81,10 @@ const App= () => {
     </Modal>
     )
     }
+
+    <ChangeAlert
+      synchronize = {synchronizeTodos}
+    />
   </>
   );
 }
